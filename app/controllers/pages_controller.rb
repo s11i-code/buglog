@@ -1,6 +1,8 @@
 class PagesController < ApplicationController
 
   def dashboard
-    @bug_types = BugType.all
+  end
+
+  def management
   end
 end

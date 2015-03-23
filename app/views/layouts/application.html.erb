@@ -4,12 +4,12 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><%= content_for?(:title) ? yield(:title) : "Users" %></title>
+  <title><%= content_for?(:title) ? yield(:title) : "BugLog" %></title>
   <%= csrf_meta_tags %>
   <%= stylesheet_link_tag "application", :media => "all" %>
 </head>
 <body>
-<div class="container"><h1>List of users</h1>
+<div class="container">
 
   <div data-ng-view></div>
 </div>
