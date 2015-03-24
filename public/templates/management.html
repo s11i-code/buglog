@@ -2,16 +2,16 @@
 <table class="table table-striped table-bordered">
     <thead>
     <tr>
-        <td>Name</td>
-        <td>Description</td>
+        <td>Type</td>
+        <td>Created at</td>
     </tr>
     </thead>
-    <tr ng-repeat="bugType in bugTypes | orderBy:id">
+    <tr ng-repeat="bugs in bugs | orderBy:id">
         <td>
-            {{ bugType.name }}
+            {{ bug.bug_type.name }}
         </td>
         <td>
-            {{ bugType.description }}
+            {{ bugType.created_at }}
         </td>
     </tr>
 </table>
