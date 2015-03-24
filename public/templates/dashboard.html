@@ -7,12 +7,12 @@
             <td>Description</td>
         </tr>
         </thead>
-        <tr ng-repeat="bugType in bugTypes | orderBy:id">
+        <tr ng-repeat="bug_type in bug_types | orderBy:id">
             <td>
-                {{ bugType.name }}
+                {{ bug_type.name }}
             </td>
             <td>
-                {{ bugType.description }}
+                {{ bug_type.description }}
             </td>
         </tr>
     </table>

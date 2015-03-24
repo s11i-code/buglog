@@ -3,7 +3,10 @@ Rails.application.routes.draw do
   devise_for :users
   namespace :api, defaults: { format: 'json' } do
     namespace :v1 do
-      resources :bug_types
+      resources :bug_types, only: [:show]
+      resources :users, only: [] do
+        resources :bug_types, only: [:index]
+      end
     end
   end
 

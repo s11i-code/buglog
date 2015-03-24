@@ -4,14 +4,18 @@
     <tr>
         <td>Type</td>
         <td>Created at</td>
+        <td>Times encountered</td>
     </tr>
     </thead>
-    <tr ng-repeat="bugs in bugs | orderBy:id">
+    <tr ng-repeat="bug_type in bug_types | orderBy:id">
         <td>
-            {{ bug.bug_type.name }}
+            {{ bug_type.name }}
         </td>
         <td>
-            {{ bugType.created_at }}
+            {{ bug_type.created_at }}
+        </td>
+        <td>
+            {{ bug_type.number_of_occurrences }}
         </td>
     </tr>
 </table>
