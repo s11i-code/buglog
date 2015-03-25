@@ -41,6 +41,8 @@ GEM
       autoprefixer-rails (>= 5.0.0.1)
       sass (>= 3.2.19)
     builder (3.2.2)
+    byebug (4.0.3)
+      columnize (= 0.9.0)
     coderay (1.1.0)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
@@ -49,6 +51,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.9.1)
+    columnize (0.9.0)
     devise (3.3.0)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -155,6 +158,7 @@ DEPENDENCIES
   angularjs-rails
   better_errors
   bootstrap-sass (~> 3.3.4)
+  byebug
   coffee-rails (~> 4.0.0)
   devise
   jbuilder (~> 2.0)

@@ -33,6 +33,7 @@ gem 'devise'
 gem 'better_errors'
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
+  gem 'byebug'
 end
 
 # Use ActiveModel has_secure_password
