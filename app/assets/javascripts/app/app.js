@@ -1,4 +1,4 @@
-angular.module('BugLog',['ngRoute', 'ngResource','BugLog.controllers', 'BugLog.services'])
+angular.module('BugLog',['ngRoute', 'ngResource','ui.bootstrap', 'BugLog.controllers', 'BugLog.services'])
 .config(function($routeProvider){
     $routeProvider.when('/', {
         templateUrl: '/templates/dashboard.html',
