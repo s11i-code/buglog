@@ -14,7 +14,7 @@ class Api::V1::BugTypesController < ApplicationController
   def create
     @bug_type = BugType.new(bug_type_params)
     if @bug_type.save
-      render :show, status: :created, location: @bug_type
+      render :show, status: :created, location: api_v1_bug_type_url(@bug_type)
     else
       render json: @bug_type.errors, status: :unprocessable_entity
     end
@@ -22,7 +22,7 @@ class Api::V1::BugTypesController < ApplicationController
 
   def update
     if @bug_type.update(bug_type_params)
-      render :show, status: :ok, location: @bug_type
+      render :show, status: :ok, location: api_v1_bug_type_url(@bug_type)
     else
       render json: @bug_type.errors, status: :unprocessable_entity
     end
