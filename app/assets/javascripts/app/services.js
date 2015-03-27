@@ -3,7 +3,7 @@ angular.module('BugLog.services', [])
 
     function get() {
         //hard-coded user id until sign in is fully implemented
-        return $http.get('http://localhost:3000/api/v1/users/1/bug_types');
+        return $http.get('api/v1/users/1/bug_types');
     }
 
     return{getAll: get};
