@@ -16,6 +16,16 @@ angular.module('BugLog.controllers', [])
             $scope.alerts.splice(index, 1);
         }
 
+        $scope.createBugType = function (bug_type) {
+            bug_type = new BugType(bug_type)
+            bug_type.$save(function (){
+                $scope.alerts.push({type: "success", msg: 'Saved!'});
+                $scope.bug_types.push(bug_type)
+                $scope.new_bug_type.name = ''
+                $scope.new_bug_type.description = ''
+            })
+        }
+
         $scope.updateBugType = function (bug_type) {
             BugType.update({ id: bug_type.id }, bug_type, function () {
                 $scope.alerts.push({type: "success", msg: 'Saved!'});

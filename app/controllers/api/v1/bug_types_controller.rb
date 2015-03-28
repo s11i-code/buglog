@@ -7,12 +7,8 @@ class Api::V1::BugTypesController < ApplicationController
     @bug_types = BugType.find_all_for(@user)
   end
 
-  def new
-    @bug_type = BugType.new
-  end
-
   def create
-    @bug_type = BugType.new(bug_type_params)
+    @bug_type = current_user.bug_types.build(bug_type_params)
     if @bug_type.save
       render :show, status: :created, location: api_v1_bug_type_url(@bug_type)
     else
