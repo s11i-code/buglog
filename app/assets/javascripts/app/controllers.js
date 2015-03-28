@@ -21,4 +21,11 @@ angular.module('BugLog.controllers', [])
                 $scope.alerts.push({type: "success", msg: 'Saved!'});
             })
         }
+
+        $scope.destroyBugType = function(index, bug_type){
+            BugType.delete({id: bug_type.id}, function (){
+                $scope.bug_types.splice(index, 1)
+                $scope.alerts.push({type: "success", msg: 'Deleted!'});
+            })
+        }
     })

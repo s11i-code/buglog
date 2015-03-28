@@ -4,6 +4,8 @@ angular.module('BugLog.services', [])
     return $resource('/api/v1/bug_types/:id', { id: '@_id' }, {
         update: {
             method: 'PUT'
-        }
+        },
+        delete: { method: 'DELETE', params: {id: '@id'} }
+
     });
 })
