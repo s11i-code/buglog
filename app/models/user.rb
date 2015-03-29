@@ -4,7 +4,6 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :bug_occurrences, dependent: :destroy
   has_many :bug_types, dependent: :nullify, foreign_key: :creator_id, class_name: "BugType"
 
 end
