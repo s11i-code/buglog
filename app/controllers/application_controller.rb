@@ -5,13 +5,10 @@ class ApplicationController < ActionController::Base
 
   after_filter :set_csrf_cookie_for_ng
 
+  layout :choose_layout
+
   def set_csrf_cookie_for_ng
     cookies['XSRF-TOKEN'] = form_authenticity_token if protect_against_forgery?
-  end
-
-  #hard-coded placeholder user until sign in is fully implemented
-  def current_user
-    User.find(1)
   end
 
   protected
@@ -21,4 +18,7 @@ class ApplicationController < ActionController::Base
     super || valid_authenticity_token?(session, request.headers['X-XSRF-TOKEN'])
   end
 
+  def choose_layout
+    user_signed_in? ? "angular" : "application"
+  end
 end
