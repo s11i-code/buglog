@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.5'
+gem 'rails', '4.2'
 # Use postgresql as the database for Active Record
 gem 'pg'
 # Use SCSS for stylesheets
@@ -28,7 +28,7 @@ gem 'spring',        group: :development
 gem 'angularjs-rails'
 gem 'ngmin-rails'
 
-gem 'devise'
+gem 'devise', '~> 3.4.1'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
