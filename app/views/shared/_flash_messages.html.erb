@@ -1,6 +1,10 @@
-<% flash.each do |msg| %>
-    <div class="alert alert-warning">
-      <a class="close" data-dismiss="alert">x</a>
-      <%= msg.html_safe %>
-    </div>
+<% if flash.any? %>
+    <% flash.each do |msg| %>
+        <% text = msg.is_a?(Array) ? msg[1] : msg #parse devise's flash format:
+        %>
+        <div class="alert alert-warning">
+          <a class="close" data-dismiss="alert">x</a>
+          <%= text.html_safe %>
+        </div>
+    <% end %>
 <% end %>
