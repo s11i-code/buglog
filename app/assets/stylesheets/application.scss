@@ -6,6 +6,9 @@ $mint: rgb(177, 232, 230);
 $blueish-black: #242d36;
 $bright-red: rgb(244, 81, 69);
 
+@import url(http://fonts.googleapis.com/css?family=Pacifico|Rancho);
+@import "font-awesome";
+
 table {
   width: 400px
 }
@@ -14,11 +17,25 @@ table thead {
   font-weight: bold;
 }
 
-.navbar{
+.navbar {
+  #logo {
+    text-decoration: none;
+    font-size: 35px;
+    span.bug {
+      padding-left:8px;
+      font-size: 40px;
+      font-family: Rancho;
+    }
+    span.log {
+      font-size: 35px;
+      font-family: Pacifico;
+    }
+  }
   background-color: white;
   background-image: none;
 }
-.container.main{
+
+.container.main {
   padding: 30px;
   background-color: white;
   border-radius: 3px;
@@ -63,12 +80,12 @@ a {
   &.cancel {
     background-color: $blueish-black
   }
-  &#new_bug_type{
+  &#new_bug_type {
     background-color: $blueish-black;
     margin: 5px 0px 30px 15px;
     padding: 10px 20px;
     display: inline-block;
-    span{
+    span {
       padding-left: 3px;
       font-size: 10px;
     }
