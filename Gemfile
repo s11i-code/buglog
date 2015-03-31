@@ -32,6 +32,8 @@ gem 'devise', '~> 3.4.1'
 
 gem 'haml'
 
+gem 'font-awesome-rails'
+
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
   gem 'byebug'
