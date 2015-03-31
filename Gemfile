@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.5'
 # Use postgresql as the database for Active Record
@@ -30,12 +29,15 @@ gem 'angularjs-rails'
 gem 'ngmin-rails'
 
 gem 'devise'
-gem 'better_errors'
+
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
   gem 'byebug'
 end
 
+group :development do
+  gem 'better_errors'
+end
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
