@@ -35,6 +35,7 @@ gem 'haml'
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
   gem 'byebug'
+  gem 'letter_opener'
 end
 
 group :development do
