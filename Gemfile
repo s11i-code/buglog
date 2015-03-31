@@ -30,6 +30,8 @@ gem 'ngmin-rails'
 
 gem 'devise', '~> 3.4.1'
 
+gem 'haml'
+
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
   gem 'byebug'
