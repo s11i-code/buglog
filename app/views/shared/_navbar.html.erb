@@ -16,6 +16,10 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav pull-right">
         <% if user_signed_in? %>
+            <p class="navbar-text">
+              Signed in as <%= current_user.name %>
+              <%= "(#{current_user.email})" if current_user.email %>
+            </p>
             <%= content_tag :li, link_to('Sign out', destroy_user_session_path, method: :delete) %>
         <% else %>
             <%= content_tag :li, link_to('Sign in', new_user_session_path) %>
