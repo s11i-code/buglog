@@ -30,6 +30,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 
 gem 'angularjs-rails'
+gem 'angular-ui-bootstrap-rails'
 gem 'ngmin-rails'
 
 gem 'devise', '~> 3.4.1'
