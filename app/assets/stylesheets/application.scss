@@ -1,5 +1,6 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "buttons";
 
 $dark-grey: rgb(101, 110, 127);
 $mint: rgb(177, 232, 230);
@@ -22,7 +23,7 @@ table thead {
     text-decoration: none;
     font-size: 35px;
     span.bug {
-      padding-left:8px;
+      padding-left: 8px;
       font-size: 40px;
       font-family: Rancho;
     }
@@ -68,30 +69,4 @@ a {
   }
 }
 
-.button {
-  border: 0;
-  border-radius: 0;
-  color: #f0f1f3;
-  padding: 7px 14px;
-  text-shadow: none;
-  text-transform: capitalize;
-  &.regular {
-    background-color: $bright-red;
-  }
-  &.cancel {
-    background-color: $blueish-black
-  }
-  &#new_bug_type {
-    background-color: $blueish-black;
-    margin: 5px 0px 30px 15px;
-    padding: 10px 20px;
-    display: inline-block;
-    span {
-      padding-left: 3px;
-      font-size: 10px;
-    }
-    &, &:visited, &:hover {
-      color: white;
-    }
-  }
-}
+

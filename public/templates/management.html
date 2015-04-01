@@ -2,9 +2,9 @@
 
 <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert>
 
-<a id='new_bug_type' class="button regular"
-   ng-click="addBugTypeMode=true;new_bug_type.name = ''; new_bug_type.description = ''"> New bug type <span
-        class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+<a id='new_bug_type' class="button regular" ng-click="addBugTypeMode=true; new_bug_type.name = ''; new_bug_type.description = ''">
+    <i class="fa fa-plus"></i>
+    New type of bug
 </a>
 <table class="table table-striped bug_types">
     <thead>
@@ -63,7 +63,8 @@
                         class="button regular">
                     Save
                 </button>
-                <button type="submit" data-ng-show="editBugTypeMode" data-ng-click="editBugTypeMode = false; resetBugType($index);"
+                <button type="submit" data-ng-show="editBugTypeMode"
+                        data-ng-click="editBugTypeMode = false; resetBugType($index);"
                         class="button cancel">
                     Cancel
                 </button>
