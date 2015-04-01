@@ -5,8 +5,11 @@ gem 'rails', '4.2'
 # Use postgresql as the database for Active Record
 gem 'pg'
 # Use SCSS for stylesheets
+gem 'haml'
+
 gem 'bootstrap-sass', '~> 3.3.4'
 gem 'sass-rails', '>= 3.2'
+gem 'font-awesome-rails'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
@@ -29,10 +32,8 @@ gem 'angularjs-rails'
 gem 'ngmin-rails'
 
 gem 'devise', '~> 3.4.1'
-
-gem 'haml'
-
-gem 'font-awesome-rails'
+gem 'omniauth'
+gem 'omniauth-github'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
