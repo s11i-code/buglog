@@ -15,4 +15,7 @@
               = f.check_box :remember_me
               Remember me
         = f.submit "Log in", class: 'button regular'
+  .col-sm-4
+    .well
+      = render 'shared/github_signin_button'
 = render "devise/shared/links"
