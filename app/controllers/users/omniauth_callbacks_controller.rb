@@ -5,17 +5,22 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     auth_hash = request.env["omniauth.auth"]
     uid = auth_hash['uid']
     auth = Authorization.find_by_provider_and_uid("github", uid)
+    email = auth_hash['info']['email']
+    username = auth_hash['info']['nickname']
+    name = auth_hash['info']['name']
     if auth
-      #We already know about this user who is signing in with the provider: just return the user associated with the Authorization
+      #We already know about this user who is signing in with the provider: just return the user associated with the Authorization.
       user = auth.user
+      #Update possibly changed user data
+      user.email = email if email.present?
+      user.name = name if name.present?
+      user.save
+      auth.update_attributes(username: username) unless auth.username == username
     else
-      email = auth_hash['info']['email']
       user = User.find_by_email(email)
       unless user
-        name = auth_hash['info']['name']
         user = User.create!(name: name, email: email, password: Devise.friendly_token[0..8])
       end
-      username = auth_hash['info']['nickname']
       auth = user.authorizations.build(provider: "github", uid: uid, username: username)
       user.authorizations << auth
     end
