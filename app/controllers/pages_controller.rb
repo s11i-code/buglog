@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
 
-  def dashboard
+  def home
   end
 
   def management

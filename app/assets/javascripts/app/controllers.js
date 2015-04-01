@@ -1,6 +1,6 @@
 angular.module('BugLog.controllers', [])
 
-    .controller('DashboardController',
+    .controller('HomeController',
     function ($scope, BugType) {
         $scope.bug_types = BugType.query()
     })
