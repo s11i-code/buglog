@@ -28,8 +28,9 @@
     @include coloured-button(#5FCF80, #3AC162);
   }
 
-  &.cancel {
-    @include coloured-button(#C6CCD2)
+  &.cancel, &.grey {
+    @include coloured-button(#C6CCD2);
+    color: white;
   }
 
   &#new_bug_type {
