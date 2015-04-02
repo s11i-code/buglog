@@ -4,7 +4,21 @@ Rails.application.configure do
   # Code is not reloaded between requests.
   config.cache_classes = true
 
-  Rails.application.routes.default_url_options[:host] = 'http://buglog.herokuapp.com/'
+  Rails.application.routes.default_url_options[:host] = 'https://buglog.herokuapp.com/'
+
+  config.action_mailer.delivery_method = :smtp
+
+  ActionMailer::Base.default :from => "Buglog <buglogapp@gmail.com>"
+
+  config.action_mailer.smtp_settings = {
+      address:              'smtp.gmail.com',
+      port:                 587,
+      domain:               'https://buglog.herokuapp.com/',
+      user_name:            ENV['GMAIL_USERNAME'],
+      password:             ENV['GMAIL_PASSWORD'],
+      authentication:       'plain',
+      enable_starttls_auto: true
+  }
 
   # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both threaded web servers
