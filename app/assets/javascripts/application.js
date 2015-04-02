@@ -17,4 +17,5 @@
 //= require angular-resource
 //= require angular-ui-bootstrap-tpls
 //= require bootstrap/collapse
+//= require bootstrap/alert
 //= require_tree .
