@@ -16,4 +16,5 @@
 //= require angular-route
 //= require angular-resource
 //= require angular-ui-bootstrap-tpls
+//= require bootstrap/collapse
 //= require_tree .
