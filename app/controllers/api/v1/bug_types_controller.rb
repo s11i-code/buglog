@@ -36,7 +36,7 @@ class Api::V1::BugTypesController < ApplicationController
   end
 
   def bug_type_params
-    params.require(:bug_type).permit(:name, :description, :public, :creator_id_id)
+    params.require(:bug_type).permit(:name, :description)
   end
 
 end

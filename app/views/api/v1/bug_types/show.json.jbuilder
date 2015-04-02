@@ -1,1 +1,1 @@
-json.extract! @bug_type, :id, :name, :description, :public, :created_at, :updated_at
+json.extract! @bug_type, :id, :name, :description, :created_at, :updated_at
