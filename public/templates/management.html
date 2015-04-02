@@ -1,11 +1,12 @@
 <h1>Manage bug types</h1>
 
-<alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert>
-
 <a id='new_bug_type' class="button regular" ng-click="addBugTypeMode=true; new_bug_type.name = ''; new_bug_type.description = ''">
     <i class="fa fa-plus"></i>
     New type of bug
 </a>
+
+<alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert>
+
 <table class="table table-striped bug_types">
     <thead>
     <tr>
