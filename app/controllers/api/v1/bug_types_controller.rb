@@ -2,9 +2,7 @@ class Api::V1::BugTypesController < ApplicationController
   before_action :set_bug_type, only: [:show, :edit, :update, :destroy]
 
   def index
-    #hard-coded placeholder until sign in is fully implemented
-    @user = current_user
-    @bug_types = BugType.find_all_for(@user)
+    @bug_types = BugType.all
   end
 
   def create

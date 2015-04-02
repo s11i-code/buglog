@@ -7,15 +7,21 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <%= link_to(root_path, id: 'logo') do
+      <%= link_to(root_path + "#/", id: 'logo') do
         fa_icon("bug") + content_tag(:span, "Bug", class: "bug") + content_tag(:span, "log", class: "log")
       end %>
     </div>
+    <ul class="nav navbar-nav">
+      <% if user_signed_in? %>
+
+          <%= content_tag :li, link_to('Manage bug types', '#/management') %>
+      <% end %>
+    </ul>
 
     <div class="collapse navbar-collapse" id="navbar-collapse-1">
       <ul class="nav navbar-nav pull-right">
         <% if user_signed_in? %>
-            <p class="navbar-text hide-xs">
+            <p class="navbar-text hidden-xs hidden-sm">
               Signed in as <%= current_user.name %>
               <%= "(#{current_user.email})" if current_user.email %>
             </p>

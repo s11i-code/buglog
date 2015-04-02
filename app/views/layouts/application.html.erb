@@ -1,13 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" data-ng-app="BugLog">
 
 <head>
 
-  <%= stylesheet_link_tag 'application', media: 'all' %>
-  <%= javascript_include_tag 'application' %>
-  <%= csrf_meta_tags %>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><%= content_for?(:title) ? yield(:title) : "Buglog" %></title>
+  <%= csrf_meta_tags %>
   <%= favicon_link_tag '/favicon.png' %>
+  <%= stylesheet_link_tag "application", :media => "all" %>
 
 </head>
 
@@ -17,12 +19,12 @@
 
 <div class="container main">
 
-  <%= render 'shared/flash_messages' %>
-
-  <%= yield %>
-
+  <div data-ng-view></div>
 </div>
+
+<%= javascript_include_tag "application" %>
 
 </body>
 
 </html>
+
