@@ -24,6 +24,7 @@ angular.module('BugLog.controllers', [])
         $scope.createBugType = function (bug_type) {
             bug_type = new BugType(bug_type)
             bug_type.$save(function () {
+                bug_type.owned_by_current_user = true
                 $scope.bug_types.push(bug_type)
                 $scope.alerts.push({type: "success", msg: $interpolate('Saved bug type {{ name }}.')(bug_type)})
             })
