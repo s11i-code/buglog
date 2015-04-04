@@ -28,7 +28,7 @@
   padding: 7px 14px;
 
   &.regular {
-    @include coloured-button(#5FCF80, #3AC162);
+    @include coloured-button($bright-green, #3AC162);
   }
 
   &.cancel {

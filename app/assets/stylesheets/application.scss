@@ -54,6 +54,13 @@ h2 {
   margin-bottom: 20px;
 }
 
+#app_introduction {
+  text-align: center;
+  h2 {
+    color: $darker-bright-green;
+    margin-bottom: 10px;
+  }
+}
 body {
   background-image: url(image_path('background.png'));
   margin-bottom: 80px;

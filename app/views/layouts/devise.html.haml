@@ -15,8 +15,14 @@
       = render 'shared/flash_messages'
       -if content_for?(:left_column)
         .row
-          .col-sm-6.col-md-5.col-lg-4
+          .col-sm-6.col-md-5.col-md-offset-1
             = render 'shared/github_signin_button'
             .well
               = yield :left_column
+          .col-sm-6.col-md-5
+            .well#app_introduction
+              %h2 What is this?
+              %p Buglog aims to demystify software bugs.
+              %Chocolate gummi bears macaroon sweet gingerbread pudding tart cake tootsie roll. Marshmallow marshmallow caramels ice cream pastry macaroon. Chocolate cake gingerbread chupa chups croissant. Oat cake marzipan tart pastry topping halvah. Carrot cake donut jelly. Oat cake gummies chupa chups carrot cake. Tootsie roll gummi bears muffin tootsie roll.
+
       = yield
