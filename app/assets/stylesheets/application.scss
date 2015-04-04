@@ -1,12 +1,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "buttons";
-
-$dark-grey: rgb(101, 110, 127);
-$mint: rgb(177, 232, 230);
-$blueish-black: #242d36;
-$bright-red: rgb(244, 81, 69);
-
+@import "colors";
 @import url(https://fonts.googleapis.com/css?family=Pacifico|Rancho);
 @import "font-awesome";
 
@@ -32,7 +27,7 @@ table thead {
       font-size: 35px;
       font-family: Pacifico;
     }
-    i {color: #5FCF80}
+    i {color: $bright-green}
   }
   background-color: white;
   background-image: none;
