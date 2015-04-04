@@ -1,20 +1,16 @@
-.row
-  .col-sm-4
-    = render 'shared/github_signin_button'
-    .well
-      %h2 Sign in
-      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-        .form-group
-          = f.label :email
-          = f.email_field :email, autofocus: true, class: 'form-control'
-        .form-group
-          = f.label :password
-          = f.password_field :password, autocomplete: "off", class: 'form-control'
-        - if devise_mapping.rememberable?
-          .checkbox
-            %label
-              = f.check_box :remember_me
-              Remember me
-        = f.submit "Log in", class: 'button regular'
-  .col-sm-4
+-content_for :left_column do
+  %h2 Sign in
+  = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+    .form-group
+      = f.label :email
+      = f.email_field :email, autofocus: true, class: 'form-control'
+    .form-group
+      = f.label :password
+      = f.password_field :password, autocomplete: "off", class: 'form-control'
+    - if devise_mapping.rememberable?
+      .checkbox
+        %label
+          = f.check_box :remember_me
+          Remember me
+    = f.submit "Log in", class: 'button regular'
 = render "devise/shared/links"

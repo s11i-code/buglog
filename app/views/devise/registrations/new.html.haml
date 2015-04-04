@@ -1,24 +1,21 @@
-.row
-  .col-sm-4
-    = render 'shared/github_signin_button'
-    .well
-      %h2 Sign up
-      = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-        = devise_error_messages!
-        .form-group
-          = f.label :email
-          = f.email_field :email, autofocus: true, class: 'form-control', required: true
-        .form-group
-          = f.label :name
-          = f.text_field :name, class: 'form-control'
-        .form-group
-          - label_text = @validatable ? "Password ( #{@minimum_password_length} characters minimum)" : 'Password'
-          = f.label :password, label_text
-          = f.password_field :password, autocomplete: "off", class: 'form-control', required: true
-        .form-group
-          = f.label :password_confirmation
-          = f.password_field :password_confirmation, autocomplete: "off", class: 'form-control', required: true
-        = f.submit value: "Sign up", class: ['button', 'regular']
+-content_for :left_column do
+  %h2 Sign up
+  = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+    = devise_error_messages!
+    .form-group
+      = f.label :email
+      = f.email_field :email, autofocus: true, class: 'form-control', required: true
+    .form-group
+      = f.label :name
+      = f.text_field :name, class: 'form-control'
+    .form-group
+      - label_text = @validatable ? "Password ( #{@minimum_password_length} characters minimum)" : 'Password'
+      = f.label :password, label_text
+      = f.password_field :password, autocomplete: "off", class: 'form-control', required: true
+    .form-group
+      = f.label :password_confirmation
+      = f.password_field :password_confirmation, autocomplete: "off", class: 'form-control', required: true
+    = f.submit value: "Sign up", class: ['button', 'regular']
 
 
 = render "devise/shared/links"

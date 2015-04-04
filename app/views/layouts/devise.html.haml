@@ -13,4 +13,10 @@
     = render 'shared/navbar'
     .container.main
       = render 'shared/flash_messages'
+      -if content_for?(:left_column)
+        .row
+          .col-sm-6.col-md-5.col-lg-4
+            = render 'shared/github_signin_button'
+            .well
+              = yield :left_column
       = yield
