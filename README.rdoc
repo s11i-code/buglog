@@ -1,28 +1,14 @@
-== README
+== Buglog
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Buglog is my project where I learn Angular and try to uncover what types of bugs exist out there. The app can be found here:
+https://buglog.herokuapp.com/
 
-Things you may want to cover:
+Concept, design and implementation by yours truly :)
 
-* Ruby version
+Buglog is built on and indepted to the following technologies:
+*Angular
+*Rails
+*SCSS
+*Bootstrap
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Please submit an issue if you find one. Can also be a request for a feature. All feedback welcome to buglogapp@gmail.com.
