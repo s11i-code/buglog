@@ -65,7 +65,7 @@ table.bug_types {
   }
 }
 
-a {
+a:not(.btn):not(.button)  {
   &, &:visited, &:hover {
     color: $dark-grey;
   }

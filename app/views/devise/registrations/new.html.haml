@@ -1,5 +1,6 @@
 .row
   .col-sm-4
+    = render 'shared/github_signin_button'
     .well
       %h2 Sign up
       = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
@@ -19,7 +20,5 @@
           = f.password_field :password_confirmation, autocomplete: "off", class: 'form-control', required: true
         = f.submit value: "Sign up", class: ['button', 'regular']
 
-  .col-sm-4
-    .well
-      = render 'shared/github_signin_button'
+
 = render "devise/shared/links"

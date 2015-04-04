@@ -1,3 +1,6 @@
+@import "colors";
+@import "bootstrap-social";
+
 @mixin coloured-button($color, $border-color: darken($color, 6%)) {
   border-color: $border-color;
   background-color: $color;
@@ -28,7 +31,7 @@
     @include coloured-button(#5FCF80, #3AC162);
   }
 
-  &.cancel, &.grey {
+  &.cancel {
     @include coloured-button(#C6CCD2);
     color: white;
   }
@@ -47,4 +50,7 @@
       color: white;
     }
   }
+}
+.btn-github {
+  margin-bottom: 20px;
 }

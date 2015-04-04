@@ -1,5 +1,6 @@
 .row
   .col-sm-4
+    = render 'shared/github_signin_button'
     .well
       %h2 Sign in
       = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
@@ -16,6 +17,4 @@
               Remember me
         = f.submit "Log in", class: 'button regular'
   .col-sm-4
-    .well
-      = render 'shared/github_signin_button'
 = render "devise/shared/links"
