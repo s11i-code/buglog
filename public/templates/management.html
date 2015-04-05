@@ -36,7 +36,7 @@
             </td>
         </form>
     </tr>
-    <tr ng-repeat="bug_type in bug_types | filter: { owned_by_current_user: true } | orderBy:id">
+    <tr ng-repeat="bug_type in bug_types | filter: { owned_by_current_user: true } | orderBy:'-id'">
         <form>
             <td>
                 <span data-ng-hide="editBugTypeMode">{{bug_type.name}} </span>
