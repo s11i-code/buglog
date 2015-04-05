@@ -4,7 +4,7 @@ class Api::V1::BugTypesController < ApplicationController
   before_action :set_bug_type_with_authorization, only: [:update, :destroy]
 
   def index
-    @bug_types = BugType.all
+    @bug_types = BugType.all.includes(:votes)
   end
 
   def create

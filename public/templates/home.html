@@ -4,14 +4,18 @@
     <tr>
         <td>Name</td>
         <td>Description</td>
+        <td>Votes count</td>
     </tr>
     </thead>
-    <tr ng-repeat="bug_type in bug_types | orderBy:id">
+    <tr ng-repeat="bug_type in bug_types | orderBy:'vote_count'">
         <td>
             {{ bug_type.name }}
         </td>
         <td>
             {{ bug_type.description }}
+        </td>
+        <td>
+            {{ bug_type.vote_count }}
         </td>
     </tr>
 </table>
