@@ -41,10 +41,10 @@
     padding: 10px 20px;
     display: inline-block;
     font-weight: bold;
-    font-size: 18;
     i {
+      vertical-align: middle;
       padding-right: 3px;
-      font-size: 18px;
+      font-size: 14px;
     }
     &, &:visited, &:hover {
       color: white;
