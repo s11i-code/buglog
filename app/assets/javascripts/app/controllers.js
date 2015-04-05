@@ -16,9 +16,12 @@ angular.module('BugLog.controllers', [])
             $scope.alerts.splice(index, 1);
         }
 
-        $scope.resetBugType = function($index) {
-            console.log($scope.master)
-            //$scope.bug_types[$index] = angular.copy($scope.master.bug_types[$index]);
+        $scope.resetBugType = function(changed_bug_type) {
+            var bug_type = BugType.get({ id: changed_bug_type.id }, function() {
+                var index =  $scope.bug_types.indexOf(changed_bug_type)
+                console.log(bug_type)
+                $scope.bug_types[index] = bug_type
+            });
         }
 
         $scope.createBugType = function (bug_type) {
