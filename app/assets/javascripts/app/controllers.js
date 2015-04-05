@@ -9,8 +9,7 @@ angular.module('BugLog.controllers', [])
     function ($scope, BugType, $interpolate) {
 
         $scope.bug_types = BugType.query()
-            //filterFilter(BugType.query(), { owned_by_current_user: true})
-        console.log($scope.bug_types)
+
         $scope.alerts = []
 
         $scope.closeAlert = function (index) {
@@ -45,6 +44,5 @@ angular.module('BugLog.controllers', [])
                     $scope.alerts.push({type: "success", msg: $interpolate('Deleted bug type {{ name }}.')(bug_type)})
                 })
             }
-
         }
     })
