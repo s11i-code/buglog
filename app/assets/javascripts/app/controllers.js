@@ -36,10 +36,11 @@ angular.module('BugLog.controllers', [])
             })
         }
 
-        $scope.destroyBugType = function (index, bug_type) {
+        $scope.destroyBugType = function (bug_type) {
             confirmText = $interpolate("Are you sure you want to remove {{name}}?")(bug_type)
             if (confirm(confirmText)) {
                 BugType.delete({id: bug_type.id}, function () {
+                    var index =  $scope.bug_types.indexOf(bug_type);
                     $scope.bug_types.splice(index, 1)
                     $scope.alerts.push({type: "success", msg: $interpolate('Deleted bug type {{ name }}.')(bug_type)})
                 })
