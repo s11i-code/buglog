@@ -99,7 +99,7 @@ a:not(.btn):not(.button) {
         color: darken($dark-grey, 15%);
       }
     }
-    .actions {
+    .votes {
       border-right: 1px solid $light-grey;
       background-color: lighten($light-grey, 15%);
       padding: 15px 15px 0 0;
@@ -109,11 +109,15 @@ a:not(.btn):not(.button) {
       bottom: 0px;
       width: $votes-area-width;
       text-align: right;
-      a {
+      a.vote {
         &, &:visited, &:hover {
           color: $darker-bright-green;
         }
-        display: block;
+      }
+      a.unvote {
+        &, &:visited, &:hover {
+          color: $dark-grey;
+        }
       }
     }
   }

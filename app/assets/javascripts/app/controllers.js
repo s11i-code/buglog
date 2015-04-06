@@ -13,10 +13,17 @@ angular.module('BugLog.controllers', [])
 
         $scope.createVote = function(bug_type){
             var vote = new Vote({bug_type_id: bug_type.id})
-            vote.$save(function () {
+            vote.$save(function (data) {
                 var index =  $scope.bug_types.indexOf(bug_type)
-                bug_type.voted_by_current_user = true
                 $scope.bug_types[index].vote_count++
+                $scope.bug_types[index].vote_id_by_current_user = data.data.id
+            })
+        };
+        $scope.destroyVote = function(vote_id, bug_type){
+            Vote.delete({id: vote_id}, function() {
+                var index =  $scope.bug_types.indexOf(bug_type)
+                $scope.bug_types[index].vote_id_by_current_user = null
+                $scope.bug_types[index].vote_count--
             })
         };
     })
