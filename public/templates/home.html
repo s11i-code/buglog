@@ -11,20 +11,6 @@
 
     <li class='list-group-item' ng-repeat="bug_type in bug_types | orderBy:'-vote_count'">
 
-        <div class="votes">
-            Votes: {{ bug_type.vote_count }}
-            <br>
-            <a data-ng-hide="bug_type.vote_id_by_current_user" ng-click="createVote(bug_type)" class="vote">
-                <i class="fa fa-arrow-circle-up"></i>
-                upvote
-            </a>
-            <a data-ng-show="bug_type.vote_id_by_current_user" class="unvote"
-               ng-click="destroyVote(bug_type.vote_id_by_current_user, bug_type)">
-                <i class="fa fa-arrow-circle-down"></i>
-                unvote
-            </a>
-        </div>
-
         <div class="text" ng-include="'templates/bug_type_list_item.html'"></div>
 
     </li>

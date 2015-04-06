@@ -1,3 +1,17 @@
+<div class="votes">
+    Votes: {{ bug_type.vote_count }}
+    <br>
+    <a data-ng-hide="bug_type.vote_id_by_current_user" ng-click="createVote(bug_type)" class="vote">
+        <i class="fa fa-arrow-circle-up"></i>
+        upvote
+    </a>
+    <a data-ng-show="bug_type.vote_id_by_current_user" class="unvote"
+       ng-click="destroyVote(bug_type.vote_id_by_current_user, bug_type)">
+        <i class="fa fa-arrow-circle-down"></i>
+        unvote
+    </a>
+</div>
+
 <span data-ng-show="bug_type.owned_by_current_user && !editBugTypeMode" class="edit_icons badge">
         <a data-ng-click="editBugTypeMode = true">
             <i class="fa fa-pencil"></i>
@@ -6,7 +20,7 @@
         <a data-ng-click="destroyBugType(bug_type)">
             <i class="fa fa-close"></i>
         </a>
-    </span>
+</span>
 
 <h4 class="list-group-item-heading" data-ng-hide="editBugTypeMode">{{bug_type.name}} </h4>
 <p class="list-group-item-text" data-ng-hide="editBugTypeMode">{{bug_type.description}} </p>
