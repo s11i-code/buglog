@@ -5,7 +5,7 @@ class BugType < ActiveRecord::Base
   has_many :votes, dependent: :destroy
 
   def vote_id_by_user(user)
-    self.votes.where(user_id: user.id).pluck(:id).first
+    self.votes.where(user_id: user.id).pluck(:id).first if user
   end
 
   def voted_by?(user)
