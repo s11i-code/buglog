@@ -70,19 +70,13 @@ body {
   margin-bottom: 80px;
 }
 
-table.bug_types {
-  .glyphicon {
-    padding-right: 5px
-  }
-}
-
 a:not(.btn):not(.button) {
   &, &:visited, &:hover {
     color: $dark-grey;
   }
 }
 
-.bug_types {
+ul.bug_types {
   //everything larger that mobile phones:
   @media (min-width: $screen-sm-min) {
     & {

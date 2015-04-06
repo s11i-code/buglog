@@ -1,0 +1,16 @@
+<form>
+    <input type="text" placeholder="Name" data-ng-model="new_bug_type.name" data-ng-required class="form-control"
+           data-ng-required/>
+
+    <textarea class="form-control" name="new_bug_type.description" placeholder="Description"
+              data-ng-model="new_bug_type.description">
+    </textarea>
+
+    <button type="submit" data-ng-click="createBugType(new_bug_type); addBugTypeMode = false"
+            class="button regular">
+        Save
+    </button>
+    <button type="submit" data-ng-click="addBugTypeMode = false" class="button cancel">
+        Cancel
+    </button>
+</form>

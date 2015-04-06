@@ -1,6 +1,14 @@
 <h1>Bug types</h1>
 <div ng-include="'templates/alerts.html'"></div>
+<a id='new_bug_type' class="button regular"
+   ng-click="addBugTypeMode=true; new_bug_type.name = ''; new_bug_type.description = ''">
+    <i class="fa fa-plus"></i>
+    New bug type
+</a>
 <ul class="bug_types list-group">
+
+    <li class='list-group-item' data-ng-show="addBugTypeMode" ng-include="'templates/new_bug_type_form.html'"></li>
+
     <li class='list-group-item' ng-repeat="bug_type in bug_types | orderBy:'-vote_count'">
 
         <div class="votes">
@@ -10,16 +18,14 @@
                 <i class="fa fa-arrow-circle-up"></i>
                 upvote
             </a>
-            <a data-ng-show="bug_type.vote_id_by_current_user" class="unvote" ng-click="destroyVote(bug_type.vote_id_by_current_user, bug_type)">
+            <a data-ng-show="bug_type.vote_id_by_current_user" class="unvote"
+               ng-click="destroyVote(bug_type.vote_id_by_current_user, bug_type)">
                 <i class="fa fa-arrow-circle-down"></i>
                 unvote
             </a>
         </div>
 
-        <div class="text">
-            <h4 class="list-group-item-heading">{{ bug_type.name }}</h4>
-            <p class="list-group-item-text">{{ bug_type.description }} </p>
-        </div>
+        <div class="text" ng-include="'templates/bug_type_list_item.html'"></div>
 
     </li>
 </ul>
