@@ -7,5 +7,7 @@ class User < ActiveRecord::Base
   has_many :bug_types, dependent: :nullify, foreign_key: :creator_id, class_name: "BugType"
 
   has_many :authorizations, dependent: :destroy
-  
+
+  has_many :votes, dependent: :destroy
+
 end
