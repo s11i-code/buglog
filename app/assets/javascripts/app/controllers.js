@@ -15,6 +15,7 @@ angular.module('BugLog.controllers', [])
             var vote = new Vote({bug_type_id: bug_type.id})
             vote.$save(function () {
                 var index =  $scope.bug_types.indexOf(bug_type)
+                bug_type.voted_by_current_user = true
                 $scope.bug_types[index].vote_count++
             })
         };

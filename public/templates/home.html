@@ -6,7 +6,7 @@
         <div class="actions">
             Votes: {{ bug_type.vote_count }}
             <br>
-            <a ng-click="createVote(bug_type)">
+            <a data-ng-hide="bug_type.voted_by_current_user" ng-click="createVote(bug_type)">
                 <i class="fa fa-arrow-circle-up"></i>
                 upvote
             </a>
