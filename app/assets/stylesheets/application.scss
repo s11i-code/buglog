@@ -27,7 +27,9 @@ table thead {
       font-size: 35px;
       font-family: Pacifico;
     }
-    i {color: $bright-green}
+    i {
+      color: $bright-green
+    }
   }
   background-color: white;
   background-image: none;
@@ -46,7 +48,8 @@ html, body {
 }
 
 h1 {
-  padding: 15px;
+  padding-bottom: 15px;
+  color: darken($dark-grey, 15%);
 }
 
 h2 {
@@ -61,6 +64,7 @@ h2 {
     margin-bottom: 10px;
   }
 }
+
 body {
   background-image: url(image_path('background.png'));
   margin-bottom: 80px;
@@ -72,10 +76,46 @@ table.bug_types {
   }
 }
 
-a:not(.btn):not(.button)  {
+a:not(.btn):not(.button) {
   &, &:visited, &:hover {
     color: $dark-grey;
   }
 }
 
+.bug_types {
+  //everything larger that mobile phones:
+  @media (min-width: $screen-sm-min) {
+    & {
+      max-width: 70%;
+    }
+  }
+  margin: auto;
+  li {
+    $votes-area-width: 100px;
+    .text {
+      word-wrap: break-word;
+      margin-left: $votes-area-width;
+      h4 {
+        color: darken($dark-grey, 15%);
+      }
+    }
+    .actions {
+      border-right: 1px solid $light-grey;
+      background-color: lighten($light-grey, 15%);
+      padding: 15px 15px 0 0;
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      bottom: 0px;
+      width: $votes-area-width;
+      text-align: right;
+      a {
+        &, &:visited, &:hover {
+          color: $darker-bright-green;
+        }
+        display: block;
+      }
+    }
+  }
+}
 

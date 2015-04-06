@@ -1,28 +1,21 @@
-<h2>Home</h2>
+<h1>Bug types</h1>
 <div ng-include="'templates/alerts.html'"></div>
-<table class="table table-striped">
-    <thead>
-    <tr>
-        <td>Name</td>
-        <td>Description</td>
-        <td>Votes</td>
-    </tr>
-    </thead>
-    <tr ng-repeat="bug_type in bug_types | orderBy:'-vote_count'">
-        <td>
-            {{ bug_type.name }}
-        </td>
-        <td>
-            {{ bug_type.description }}
-        </td>
-        <td>
-            {{ bug_type.vote_count }}
-        </td>
-        <td>
-            <a ng-click="createVote(bug_type)" class='upvote_bug_type button regular'>
+<ul class="bug_types list-group">
+    <li class='list-group-item' ng-repeat="bug_type in bug_types | orderBy:'-vote_count'">
+
+        <div class="actions">
+            Votes: {{ bug_type.vote_count }}
+            <br>
+            <a ng-click="createVote(bug_type)">
                 <i class="fa fa-arrow-circle-up"></i>
-                Upvote
+                upvote
             </a>
-        </td>
-    </tr>
-</table>
+        </div>
+
+        <div class="text">
+            <h4 class="list-group-item-heading">{{ bug_type.name }}</h4>
+            <p class="list-group-item-text">{{ bug_type.description }} </p>
+        </div>
+
+    </li>
+</ul>
