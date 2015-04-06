@@ -1,13 +1,14 @@
 <h2>Home</h2>
+<div ng-include="'templates/alerts.html'"></div>
 <table class="table table-striped">
     <thead>
     <tr>
         <td>Name</td>
         <td>Description</td>
-        <td>Votes count</td>
+        <td>Votes</td>
     </tr>
     </thead>
-    <tr ng-repeat="bug_type in bug_types | orderBy:'vote_count'">
+    <tr ng-repeat="bug_type in bug_types | orderBy:'-vote_count'">
         <td>
             {{ bug_type.name }}
         </td>
@@ -16,6 +17,12 @@
         </td>
         <td>
             {{ bug_type.vote_count }}
+        </td>
+        <td>
+            <a ng-click="createVote(bug_type)" class='upvote_bug_type button regular'>
+                <i class="fa fa-arrow-circle-up"></i>
+                Upvote
+            </a>
         </td>
     </tr>
 </table>

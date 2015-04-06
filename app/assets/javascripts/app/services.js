@@ -6,3 +6,8 @@ angular.module('BugLog.services', [])
             delete: { method: 'DELETE', params: {id: '@id'} }
         });
     })
+   .factory('Vote', function ($resource) {
+        return $resource('/api/v1/votes/:id', { id: '@_id' }, {
+            delete: { method: 'DELETE', params: { id: '@id'} }
+        });
+    })

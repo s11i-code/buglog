@@ -1,8 +1,23 @@
 angular.module('BugLog.controllers', [])
 
     .controller('HomeController',
-    function ($scope, BugType) {
+    function ($scope, BugType, Vote, $interpolate) {
+
+        $scope.alerts = []
+
         $scope.bug_types = BugType.query()
+
+        $scope.closeAlert = function (index) {
+            $scope.alerts.splice(index, 1);
+        }
+
+        $scope.createVote = function(bug_type){
+            var vote = new Vote({bug_type_id: bug_type.id})
+            vote.$save(function () {
+                var index =  $scope.bug_types.indexOf(bug_type)
+                $scope.bug_types[index].vote_count++
+            })
+        };
     })
 
     .controller('ManagementController',
@@ -25,7 +40,7 @@ angular.module('BugLog.controllers', [])
         }
 
         $scope.createBugType = function (bug_type) {
-            bug_type = new BugType(bug_type)
+            var bug_type = new BugType(bug_type)
             bug_type.$save(function () {
                 bug_type.owned_by_current_user = true
                 $scope.bug_types.push(bug_type)

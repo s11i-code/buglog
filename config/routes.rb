@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: 'json' } do
     namespace :v1 do
       resources :bug_types, only: [:index, :show, :create, :update, :destroy]
+      resources :votes, only: [:create]
     end
   end
 
