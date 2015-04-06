@@ -5,10 +5,14 @@ https://buglog.herokuapp.com/
 
 Concept, design and implementation by yours truly :)
 
-Buglog is built on and indepted to the following technologies:
-*Angular
-*Rails
-*SCSS
-*Bootstrap
+Buglog is built on the following technologies:
+
+* Angular
+
+* Rails
+
+* SCSS
+
+* Bootstrap
 
 Please submit an issue if you find one. Can also be a request for a feature. All feedback welcome to buglogapp@gmail.com.
