@@ -38,7 +38,7 @@ angular.module('BugLog.controllers', [])
         };
 
         $scope.resetBugType = function (edited_bug_type) {
-            edited_bug_type.editBugTypeMode = false
+            edited_bug_type.editMode = false
             if(edited_bug_type.isPersisted()) {
                 var bug_type = BugType.get({ id: edited_bug_type.id }, function () {
                     var index = $scope.bug_types.indexOf(edited_bug_type)
@@ -54,14 +54,14 @@ angular.module('BugLog.controllers', [])
         $scope.newBugType = function () {
             if(!assureSignedIn()) return
             var bug_type = new BugType()
-            bug_type.editBugTypeMode = true
+            bug_type.editMode = true
             $scope.bug_types.unshift(bug_type)
         }
 
         $scope.createOrUpdateBugType = function (edited_bug_type) {
              var onSuccess = function(refreshed_bug_type){
                 $scope.addAlert("success", $interpolate('Saved bug type {{ name }}.')(refreshed_bug_type))
-                refreshed_bug_type.editBugTypeMode = false
+                refreshed_bug_type.editMode = false
                 var index = $scope.bug_types.indexOf(edited_bug_type);
                 $scope.bug_types[index] = refreshed_bug_type
              }

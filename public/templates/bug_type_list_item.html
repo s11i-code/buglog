@@ -15,8 +15,8 @@
 </div>
 <div class="right_column">
 
-<span data-ng-show="bug_type.owned_by_current_user && !bug_type.editBugTypeMode" class="edit_icons badge">
-        <a data-ng-click="bug_type.editBugTypeMode = true">
+<span data-ng-show="bug_type.owned_by_current_user && !bug_type.editMode" class="edit_icons badge">
+        <a data-ng-click="bug_type.editMode = true">
             <i class="fa fa-pencil"></i>
         </a>
 
@@ -25,11 +25,11 @@
         </a>
 </span>
 
-    <h4 class="list-group-item-heading" data-ng-hide="bug_type.editBugTypeMode">{{bug_type.name}} </h4>
+    <h4 class="list-group-item-heading" data-ng-hide="bug_type.editMode">{{bug_type.name}} </h4>
 
-    <p class="list-group-item-text" data-ng-hide="bug_type.editBugTypeMode">{{bug_type.description}} </p>
+    <p class="list-group-item-text" data-ng-hide="bug_type.editMode">{{bug_type.description}} </p>
 
-    <form data-ng-show="bug_type.editBugTypeMode">
+    <form data-ng-show="bug_type.editMode">
 
         <input type="hidden" data-ng-model="bug_type.id" data-ng-required/>
         <input type="text" data-ng-model="bug_type.name" placeholder="Name" data-ng-required class="form-control"/>
@@ -37,7 +37,7 @@
         <button type="submit" data-ng-click="createOrUpdateBugType(bug_type);" class="button regular">
             Save
         </button>
-        <button type="submit" data-ng-click="bug_type.editBugTypeMode = false; resetBugType(bug_type);"
+        <button type="submit" data-ng-click="bug_type.editMode = false; resetBugType(bug_type);"
                 class="button cancel">
             Cancel
         </button>
