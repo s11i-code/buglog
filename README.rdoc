@@ -7,12 +7,14 @@ Concept, design and implementation by yours truly :)
 
 Buglog is built on the following technologies:
 
-* Angular
+* Angular 1.3
 
-* Rails
+* Rails 4.2
 
 * SCSS
 
 * Bootstrap
+
+* Postgres
 
 Please submit an issue if you find one. Can also be a request for a feature. All feedback welcome to buglogapp@gmail.com.
