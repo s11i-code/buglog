@@ -1,12 +1,16 @@
 angular.module('BugLog.controllers', [])
 
     .controller('HomeController',
-    function ($scope, BugType, Vote, $interpolate) {
+    function ($scope, BugType, UserService, Vote, $modal, $interpolate) {
 
         $scope.addAlert = function(type, message){
             $scope.alerts = []
             $scope.alerts.push({type: type, msg: message })
         }
+
+        UserService.getCurrentUser().then(function(res){
+            $scope.currentUser = res.data;
+        });
 
         $scope.alerts = []
 
@@ -17,6 +21,7 @@ angular.module('BugLog.controllers', [])
         }
 
         $scope.createVote = function (bug_type) {
+            if(!assureSignedIn()) return
             var vote = new Vote({bug_type_id: bug_type.id})
             vote.$save(function (data) {
                 var index = $scope.bug_types.indexOf(bug_type)
@@ -47,6 +52,7 @@ angular.module('BugLog.controllers', [])
         }
 
         $scope.newBugType = function () {
+            if(!assureSignedIn()) return
             var bug_type = new BugType()
             bug_type.editBugTypeMode = true
             $scope.bug_types.unshift(bug_type)
@@ -58,7 +64,6 @@ angular.module('BugLog.controllers', [])
                 refreshed_bug_type.editBugTypeMode = false
                 var index = $scope.bug_types.indexOf(edited_bug_type);
                 $scope.bug_types[index] = refreshed_bug_type
-
              }
             if(edited_bug_type.isPersisted()) {
                 $scope.updateBugType(edited_bug_type, onSuccess)
@@ -91,4 +96,38 @@ angular.module('BugLog.controllers', [])
                 })
             }
         }
+        $scope.openSignInModal = function (size) {
+            var modalInstance = $modal.open({
+                templateUrl: 'myModalContent.html',
+                controller: 'ModalController',
+                size: size,
+                resolve: {
+                }
+            })
+
+            modalInstance.result.then(function () {
+            }, function () {
+            })
+        };
+
+        function assureSignedIn(){
+            if(!$scope.currentUser) {
+                $scope.openSignInModal('sm')
+                return false
+            }
+            else {
+                return true
+            }
+        }
     })
+
+.controller('ModalController', function ($scope, $modalInstance) {
+
+    $scope.ok = function () {
+        $modalInstance.close();
+    };
+
+    $scope.cancel = function () {
+        $modalInstance.dismiss('cancel');
+    };
+});
