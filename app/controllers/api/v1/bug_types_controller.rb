@@ -1,4 +1,4 @@
-class Api::V1::BugTypesController < ApplicationController
+class Api::V1::BugTypesController < Api::V1::ApiController
 
   before_action :set_bug_type, only: [:show]
   before_action :set_bug_type_with_authorization, only: [:update, :destroy]

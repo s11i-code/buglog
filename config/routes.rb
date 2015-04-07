@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: 'json' } do
     namespace :v1 do
+      get 'current_user' => "api#get_current_user"
       resources :bug_types, only: [:index, :show, :create, :update, :destroy]
       resources :votes, only: [:create, :destroy]
     end
