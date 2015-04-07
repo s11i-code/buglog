@@ -16,7 +16,7 @@
       -if content_for?(:left_column)
         .row
           .col-sm-6.col-md-5.col-md-offset-1
-            = render 'shared/github_signin_button'
+            = github_sign_in_button
             .well
               = yield :left_column
           .col-sm-6.col-md-5
