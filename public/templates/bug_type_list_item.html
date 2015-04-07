@@ -31,9 +31,9 @@
 
     <form data-ng-show="bug_type.editMode">
 
-        <input type="hidden" data-ng-model="bug_type.id" data-ng-required/>
-        <input type="text" data-ng-model="bug_type.name" placeholder="Name" data-ng-required class="form-control"/>
-        <textarea class="form-control" name="bug_type.description" placeholder="Description" data-ng-model="bug_type.description"></textarea>
+        <input type="hidden" data-ng-model="bug_type.id"/>
+        <input type="text" data-ng-model="bug_type.name" placeholder="Name" required class="form-control"/>
+        <textarea name="bug_type.description" placeholder="Description" data-ng-model="bug_type.description" required class="form-control"></textarea>
         <button type="submit" data-ng-click="createOrUpdateBugType(bug_type);" class="button regular">
             Save
         </button>

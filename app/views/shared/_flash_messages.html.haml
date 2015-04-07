@@ -1,6 +1,4 @@
 - if flash.any?
   - flash.each do |msg|
     - text = msg.is_a?(Array) ? msg[1] : msg #parse devise's flash format
-    .alert.alert-warning
-      %a.close{"data-dismiss" => "alert"} x
-      = text.html_safe
+    = render 'shared/alert', text: text
