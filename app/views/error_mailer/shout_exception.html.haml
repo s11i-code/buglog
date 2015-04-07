@@ -1,0 +1,17 @@
+%h3 Caught exception!
+%pre= @exception
+
+%h3 Params:
+%pre= @params
+
+%h3 Created by user:
+- if @user
+  %p== #{@user.email} (ID: #{@user.id})
+- else
+  %pre
+    == Anonymous user, IP: #{@request.remote_ip}
+    == , User-agent: #{@request.env["HTTP_USER_AGENT"]}
+
+%h3 Stacktrace
+%pre= @exception.backtrace.join("\n")
+

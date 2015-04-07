@@ -7,11 +7,29 @@ class ApplicationController < ActionController::Base
 
   after_filter :set_csrf_cookie_for_ng
 
+  around_filter :catch_exceptions
+
+  protected
+
   def set_csrf_cookie_for_ng
     cookies['XSRF-TOKEN'] = form_authenticity_token if protect_against_forgery?
   end
 
-  protected
+  def mail_exception(exception, params)
+    ErrorMailer.shout_exception(exception, params, current_user, request).deliver
+  end
+
+  def catch_exceptions
+    yield
+  rescue Exception => exception
+    if Rails.env.in?(['test', 'development'])
+      raise exception
+    else
+      [:password, :password_confirmation].each { |key| params[:user].try(:delete, key) }
+      ErrorMailer.shout_exception(exception, params, current_user, request).deliver
+      render(:file => "#{Rails.root}/public/500", :layout => false, :status => 500, :formats => [:html])
+    end
+  end
 
   # In Rails 4.2 and above
   def verified_request?
