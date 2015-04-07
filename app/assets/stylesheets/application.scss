@@ -50,7 +50,6 @@ h1 {
   padding-bottom: 15px;
   color: darken($dark-grey, 15%);
 }
-
 h2 {
   margin-top: 0px;
   margin-bottom: 20px;
@@ -80,31 +79,23 @@ ul.bug_types {
     margin-top: 10px;
   }
   .edit_icons {
-    float:right;
+    float: right;
     a, a:visited, a:hover {
       color: white;
     }
   }
   li {
     border-radius: 3px;
-    $votes-area-width: 100px;
-    .text {
-      word-wrap: break-word;
-      margin-left: $votes-area-width;
-      h4 {
-        color: darken($dark-grey, 15%);
-      }
-    }
-    .votes {
+    $left-column-width: 100px;
+    .left_column {
       border-right: 1px solid $light-grey;
       background-color: lighten($light-grey, 15%);
-      padding: 15px 15px 0 0;
       position: absolute;
       left: 0px;
       top: 0px;
       bottom: 0px;
-      width: $votes-area-width;
-      text-align: right;
+      width: $left-column-width;
+      padding: 15px;
       a.vote {
         &, &:visited, &:hover {
           color: $darker-bright-green;
@@ -115,6 +106,9 @@ ul.bug_types {
           color: $dark-grey;
         }
       }
+    }
+    .right_column {
+      padding-left: $left-column-width;
     }
   }
 }

@@ -1,17 +1,17 @@
-<h1>Bug types</h1>
-<div ng-include="'templates/alerts.html'"></div>
 <a id='new_bug_type' class="button regular"
    ng-click="addBugTypeMode=true; new_bug_type.name = ''; new_bug_type.description = ''">
     <i class="fa fa-plus"></i>
     New bug type
 </a>
+
+<div ng-include="'templates/alerts.html'"></div>
+
 <ul class="bug_types list-group">
 
     <li class='list-group-item' data-ng-show="addBugTypeMode" ng-include="'templates/new_bug_type_form.html'"></li>
 
-    <li class='list-group-item' ng-repeat="bug_type in bug_types | orderBy:'-vote_count'">
+    <li class='list-group-item' ng-repeat="bug_type in bug_types | orderBy:'-vote_count'"
 
-        <div class="text" ng-include="'templates/bug_type_list_item.html'"></div>
+        ng-include="'templates/bug_type_list_item.html'">
 
-    </li>
 </ul>
