@@ -32,26 +32,52 @@ angular.module('BugLog.controllers', [])
             })
         };
 
-
-        $scope.resetBugType = function (changed_bug_type) {
-            var bug_type = BugType.get({ id: changed_bug_type.id }, function () {
-                var index = $scope.bug_types.indexOf(changed_bug_type)
-                $scope.bug_types[index] = bug_type
-            });
+        $scope.resetBugType = function (edited_bug_type) {
+            edited_bug_type.editBugTypeMode = false
+            if(edited_bug_type.isPersisted()) {
+                var bug_type = BugType.get({ id: edited_bug_type.id }, function () {
+                    var index = $scope.bug_types.indexOf(edited_bug_type)
+                    $scope.bug_types[index] = bug_type
+                });
+            }
+            else {
+                var index = $scope.bug_types.indexOf(edited_bug_type);
+                $scope.bug_types.splice(index, 1)
+            }
         }
 
-        $scope.createBugType = function (bug_type) {
-            var bug_type = new BugType(bug_type)
+        $scope.newBugType = function () {
+            var bug_type = new BugType()
+            bug_type.editBugTypeMode = true
+            $scope.bug_types.unshift(bug_type)
+        }
+
+        $scope.createOrUpdateBugType = function (edited_bug_type) {
+             var onSuccess = function(refreshed_bug_type){
+                $scope.addAlert("success", $interpolate('Saved bug type {{ name }}.')(refreshed_bug_type))
+                refreshed_bug_type.editBugTypeMode = false
+                var index = $scope.bug_types.indexOf(edited_bug_type);
+                $scope.bug_types[index] = refreshed_bug_type
+
+             }
+            if(edited_bug_type.isPersisted()) {
+                $scope.updateBugType(edited_bug_type, onSuccess)
+            }
+            else {
+                $scope.createBugType(edited_bug_type, onSuccess)
+            }
+        }
+
+        $scope.createBugType = function (bug_type, onSuccess) {
             bug_type.$save(function () {
                 bug_type.owned_by_current_user = true
-                $scope.bug_types.push(bug_type)
-                $scope.addAlert("success", $interpolate('Saved bug type {{ name }}.')(bug_type))
+                onSuccess(bug_type)
             })
         }
 
-        $scope.updateBugType = function (bug_type) {
+        $scope.updateBugType = function (bug_type, onSuccess) {
             BugType.update({ id: bug_type.id }, bug_type, function () {
-                $scope.addAlert("success", $interpolate('Saved bug type {{ name }}.')(bug_type))
+                onSuccess(bug_type)
             })
         }
 
