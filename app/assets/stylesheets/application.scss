@@ -111,6 +111,7 @@ ul.bug_types {
     }
     .right_column {
       padding-left: $left-column-width;
+      min-height: 45px;
     }
   }
 }
