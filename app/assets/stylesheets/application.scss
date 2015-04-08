@@ -43,7 +43,7 @@
 
 html, body {
   height: 100%;
-  color: $dark-grey;
+  color: lighten($dark-grey, 7%);
 }
 
 h1 {
@@ -70,7 +70,10 @@ body {
 
 a:not(.btn):not(.button) {
   &, &:visited, &:hover {
-    color: $dark-grey;
+    color: darken($dark-grey, 7%);
+  }
+  p &{
+    font-weight: bold;
   }
 }
 .modal a {
