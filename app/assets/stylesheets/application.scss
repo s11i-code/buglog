@@ -61,6 +61,10 @@ h2 {
     color: $darker-bright-green;
     margin-bottom: 10px;
   }
+  p {
+    text-align: justify;
+    text-justify: inter-word;
+  }
 }
 
 body {
