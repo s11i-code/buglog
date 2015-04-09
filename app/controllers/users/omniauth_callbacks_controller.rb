@@ -17,6 +17,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       user.save
       auth.update_attributes(username: username) unless auth.username == username
     else
+      return redirect_to new_user_registration_path, notice: "Sorry! Can't authenticate you via GitHub because your account's email is secret. Please register the traditional way. " if email.blank?
       user = User.find_by_email(email)
       unless user
         user = User.create!(name: name, email: email, password: Devise.friendly_token[0..8])
