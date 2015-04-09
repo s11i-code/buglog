@@ -1,7 +1,7 @@
 class CreateBugTypes < ActiveRecord::Migration
   def change
     create_table :bug_types do |t|
-      t.string :name
+      t.string :name, limit: 255
       t.text :description
       t.boolean :public
       t.references :creator, index: true
