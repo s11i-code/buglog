@@ -18,4 +18,5 @@
 //= require angular-ui-bootstrap-tpls
 //= require bootstrap/collapse
 //= require bootstrap/alert
+//= require jquery.bootstrap-growl.min.js
 //= require_tree .

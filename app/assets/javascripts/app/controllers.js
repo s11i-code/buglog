@@ -4,21 +4,14 @@ angular.module('BugLog.controllers', [])
     function ($scope, BugType, UserService, Vote, $modal, $interpolate) {
 
         $scope.addAlert = function(type, message){
-            $scope.alerts = []
-            $scope.alerts.push({type: type, msg: message })
+            $.bootstrapGrowl(message, { type: type, delay: 4000})
         }
 
         UserService.getCurrentUser().then(function(res){
             $scope.currentUser = res.data;
         });
 
-        $scope.alerts = []
-
         $scope.bug_types = BugType.query()
-
-        $scope.closeAlert = function (index) {
-            $scope.alerts.splice(index, 1);
-        }
 
         $scope.createVote = function (bug_type) {
             if(!assureSignedIn()) return
