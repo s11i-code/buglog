@@ -94,11 +94,12 @@ ul.bug_types {
     }
   }
   li {
+    border-color:  $lighter-green;
     border-radius: 3px;
     $left-column-width: 100px;
     .left_column {
-      border-right: 1px solid $light-grey;
-      background-color: lighten($light-grey, 15%);
+      border-right: 1px solid $lighter-green;
+      background-color:  rgba($lighter-green, 0.1);
       position: absolute;
       left: 0px;
       top: 0px;
