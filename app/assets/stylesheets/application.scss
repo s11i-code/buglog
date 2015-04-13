@@ -38,6 +38,28 @@
 @media (min-width: $screen-sm-min) {
   .container.main {
     padding: 30px 70px;
+    $left-column-width: 100px;
+    .left_column {
+      width: $left-column-width;
+      padding: 15px;
+    }
+    .right_column {
+      padding-left: $left-column-width;
+    }
+  }
+}
+//mobile phones:
+
+@media (max-width: $screen-xs-max) {
+  .container.main {
+    $left-column-width: 80px;
+    .left_column {
+      width: $left-column-width;
+      padding: 15px 10px;
+    }
+    .right_column {
+      padding-left: $left-column-width;
+    }
   }
 }
 
@@ -96,7 +118,6 @@ ul.bug_types {
   li {
     border-color:  $lighter-green;
     border-radius: 3px;
-    $left-column-width: 100px;
     .left_column {
       border-right: 1px solid $lighter-green;
       background-color:  rgba($lighter-green, 0.1);
@@ -104,8 +125,6 @@ ul.bug_types {
       left: 0px;
       top: 0px;
       bottom: 0px;
-      width: $left-column-width;
-      padding: 15px;
       a.vote {
         &, &:visited, &:hover {
           color: $darker-bright-green;
@@ -118,7 +137,6 @@ ul.bug_types {
       }
     }
     .right_column {
-      padding-left: $left-column-width;
       min-height: 45px;
     }
   }
