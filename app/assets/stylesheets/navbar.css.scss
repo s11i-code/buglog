@@ -1,0 +1,21 @@
+.navbar {
+  #logo {
+    padding-left: 20px;
+    text-decoration: none;
+    font-size: 35px;
+    span.bug {
+      padding-left: 8px;
+      font-size: 40px;
+      font-family: Rancho;
+    }
+    span.log {
+      font-size: 35px;
+      font-family: Pacifico;
+    }
+    i {
+      color: $bright-green
+    }
+  }
+  background-color: white;
+  background-image: none;
+}

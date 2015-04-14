@@ -2,30 +2,10 @@
 @import "bootstrap";
 @import "buttons";
 @import "colors";
+@import "navbar";
 @import url(https://fonts.googleapis.com/css?family=Pacifico|Rancho);
 @import "font-awesome";
 
-.navbar {
-  #logo {
-    padding-left: 20px;
-    text-decoration: none;
-    font-size: 35px;
-    span.bug {
-      padding-left: 8px;
-      font-size: 40px;
-      font-family: Rancho;
-    }
-    span.log {
-      font-size: 35px;
-      font-family: Pacifico;
-    }
-    i {
-      color: $bright-green
-    }
-  }
-  background-color: white;
-  background-image: none;
-}
 
 .container.main {
   background-color: white;
